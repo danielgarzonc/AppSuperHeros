@@ -11,7 +11,11 @@ class HerosRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', herosController_1.default.index);
+        this.router.get('/', herosController_1.default.list);
+        this.router.get('/:id', herosController_1.default.getOne);
+        this.router.post('/', herosController_1.default.create);
+        this.router.put('/:id', herosController_1.default.update);
+        this.router.delete('/:id', herosController_1.default.delete);
     }
 }
 const herosRoutes = new HerosRoutes();

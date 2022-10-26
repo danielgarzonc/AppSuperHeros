@@ -10,7 +10,11 @@ class HerosRoutes {
     }
 
     config(): void{
-        this.router.get('/', herosController.index);
+        this.router.get('/', herosController.list);
+        this.router.get('/:id', herosController.getOne);
+        this.router.post('/', herosController.create);
+        this.router.put('/:id', herosController.update);
+        this.router.delete('/:id', herosController.delete);
     }
 
 }

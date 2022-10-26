@@ -9,7 +9,8 @@ CREATE TABLE heros(
     operation_place VARCHAR(180),
     condicion VARCHAR(180),
     power_type VARCHAR(180),
-    vehicle VARCHAR(180)
+    vehicle VARCHAR(180),
+    image VARCHAR(200)
 );
 
 CREATE TABLE power_types(
