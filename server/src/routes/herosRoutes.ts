@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import herosController from '../controllers/herosController';
 
 class HerosRoutes {
 
@@ -9,7 +10,7 @@ class HerosRoutes {
     }
 
     config(): void{
-        this.router.get('/', (req, res)=>res.send('Heros'));
+        this.router.get('/', herosController.index);
     }
 
 }
