@@ -9,11 +9,11 @@ import { HerosService } from "../../services/heros.service";
 })
 export class HeroListComponent implements OnInit {
 
+  @HostBinding('class') classes = 'row';
+
   heros: any = [];
 
   constructor(private herosService:HerosService) { }
-
-  @HostBinding('class') classes = 'row';
 
   ngOnInit(): void {
     this.herosService.getHeros().subscribe(

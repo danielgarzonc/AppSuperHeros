@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Hero } from 'src/app/models/hero';
 import { HerosService } from "../../services/heros.service";
 
@@ -22,6 +22,8 @@ export class HeroFormComponent implements OnInit {
   };
 
   constructor(private heroService:HerosService) { }
+
+  @HostBinding('class') classes = 'row';
 
   ngOnInit(): void {
   }
