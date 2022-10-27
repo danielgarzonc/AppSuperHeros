@@ -1,1 +1,17 @@
-
+<div class="col-md-4" *ngFor="let hero of heros">
+    <div class="card rounded-top">
+        <img [src]="hero.image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title display-6">{{ hero.name }}</h5>
+            <h6 class="card-subtitle mb-2"><strong>Tipo:</strong> {{ hero.hero_type }}</h6>
+            <h6 class="card-subtitle mb-2"><strong>Condición:</strong> {{ hero.condicion }}</h6>
+            <h6 class="card-subtitle mb-2"><strong>Poderes:</strong> {{ hero.power_type }}</h6>
+            <h6 class="card-subtitle mb-2"><strong>Vehículo:</strong> {{ hero.vehicle }}</h6>
+            <h6 class="card-subtitle mb-2"><strong>Lugar operación:</strong> {{ hero.operation_place }}</h6>
+            <a href="#" class="btn btn-info btn-block m-1"><i class="fa-solid fa-pencil"></i></a>
+            <button class="btn btn-danger">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+</div>
