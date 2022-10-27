@@ -31,8 +31,8 @@
                         <label class="form-label">Link de la imagen</label>
                         <input type="url" name="image" [(ngModel)]="hero.image" class="form-control">
                     </div>
-                    <button class="btn btn-success btn-block" (click)="saveNewHero()">
-                        Agregar
+                    <button class="btn btn-success btn-block" (click)="edit ? updateHero() : saveNewHero()">
+                        Guardar
                     </button>
                 </form>
             </div>
@@ -44,7 +44,7 @@
         <div class="card rounded-top">
             <img [src]="hero.image == '' ? '../../assets/no-image.png' : hero.image" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title display-6">{{ hero.id == 0 ? "" : hero.id + "-" }}  {{ hero.name }}</h5>
+                <h5 class="card-title display-6">{{ hero.id == 0 ? "" : hero.id + "." }}  {{ hero.name }}</h5>
                 <h6 class="card-subtitle mb-2"><strong>Tipo:</strong> {{ hero.hero_type }}</h6>
                 <h6 class="card-subtitle mb-2"><strong>Condición:</strong> {{ hero.condicion }}</h6>
                 <h6 class="card-subtitle mb-2"><strong>Poderes:</strong> {{ hero.power_type }}</h6>

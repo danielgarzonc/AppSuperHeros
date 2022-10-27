@@ -30,7 +30,7 @@ export class HerosService {
     return this.http.delete(`${this.API_URI}/heros/${id}`);
    }
 
-   updateHero(id: string, updatedHero: Hero): Observable<Hero>{
+   updateHero(id?: string|number, updatedHero?: Hero): Observable<Hero>{
     return this.http.put(`${this.API_URI}/heros/${id}`, updatedHero);
    }
 }

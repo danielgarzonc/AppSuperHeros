@@ -1,6 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Hero } from 'src/app/models/hero';
 import { HerosService } from "../../services/heros.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-hero-form',
@@ -8,6 +9,8 @@ import { HerosService } from "../../services/heros.service";
   styleUrls: ['./hero-form.component.css']
 })
 export class HeroFormComponent implements OnInit {
+
+  @HostBinding('class') classes = 'row';
 
   hero: Hero = {
     creation_date: new Date(),
@@ -21,22 +24,48 @@ export class HeroFormComponent implements OnInit {
     image: ''
   };
 
-  constructor(private heroService:HerosService) { }
+  edit: boolean = false;
 
-  @HostBinding('class') classes = 'row';
+  constructor(private heroService: HerosService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    const params = this.activatedRoute.snapshot.params;
+    if(params['id']){
+      this.heroService.getHero(params['id'])
+      .subscribe(
+        res => {
+          console.log(res);
+          this.hero = res;
+          this.edit = true;
+        },
+        err => console.error(err)
+      )
+    }
   }
 
-  saveNewHero(){
+  saveNewHero() {
     delete this.hero.id;
     delete this.hero.creation_date;
-    
+
     this.heroService.addHero(this.hero).subscribe(
       res => {
         console.log(res);
+        this.router.navigate(['/heros']);
       },
       err => console.error(err)
+    )
+  }
+
+  updateHero(){
+    delete this.hero.creation_date;
+    this.heroService.updateHero(this.hero.id, this.hero).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigate(['/heros']);
+      },
+      err => console.log(err)
     )
   }
 

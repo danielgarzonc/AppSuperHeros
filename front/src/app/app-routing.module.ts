@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/heroe', pathMatch: 'full' },
   { path: 'heroe', component: HeroListComponent },
   { path: 'heroe/add', component: HeroFormComponent },
+  { path: 'heroe/edit/:id', component: HeroFormComponent },
   { path: '**', redirectTo: 'heroe', pathMatch: 'full' }
 ];
 
