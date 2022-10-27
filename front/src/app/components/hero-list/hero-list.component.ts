@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Hero } from 'src/app/models/hero';
 import { HerosService } from "../../services/heros.service";
 
@@ -12,6 +12,8 @@ export class HeroListComponent implements OnInit {
   heros: any = [];
 
   constructor(private herosService:HerosService) { }
+
+  @HostBinding('class') classes = 'row';
 
   ngOnInit(): void {
     this.herosService.getHeros().subscribe(

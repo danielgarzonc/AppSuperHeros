@@ -1,1 +1,41 @@
-<p>hero-form works!</p>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Héroe</label>
+                        <input type="text" name="name" [(ngModel)]="hero.name" class="form-control" autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tipo</label>
+                        <input type="text" name="tipo" [(ngModel)]="hero.hero_type" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Condición</label>
+                        <input type="text" name="condicion" [(ngModel)]="hero.condicion" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Poderes</label>
+                        <textarea name="poderes" class="form-control" [(ngModel)]="hero.power_type" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Vehículo</label>
+                        <input type="text" name="vehiculo" [(ngModel)]="hero.vehicle" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Lugar operación</label>
+                        <input type="text" name="lugar" [(ngModel)]="hero.operation_place" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Link de la imagen</label>
+                        <input type="url" name="image" [(ngModel)]="hero.image" class="form-control">
+                    </div>
+                    <button class="btn btn-success btn-block" (click)="saveNewHero()">
+                        Agregar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
